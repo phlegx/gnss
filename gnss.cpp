@@ -325,7 +325,7 @@ int GnssParser::enable_ubx() {
         length = sendUbx(0x06, 0x00, ubx_cfg_prt, sizeof(ubx_cfg_prt));
         if(length >= (int)(sizeof(ubx_cfg_prt) + UBX_FRAME_SIZE))
         {
-            thread_sleep_for(5000);
+            thread_sleep_for(1000);
             break;
         }
         else
@@ -667,13 +667,11 @@ bool GnssSerial::init(PinName pn)
     }
     timer.stop();
 
-    thread_sleep_for(1000);
-
     enable_ubx();
 
-    thread_sleep_for(1000);
-
     baud(115200);
+
+    thread_sleep_for(1);
 
     // Send a byte to wakup the device again
     putc(0xFF);
