@@ -645,13 +645,10 @@ GnssSerial::~GnssSerial(void)
     powerOff();
 }
 
-bool GnssSerial::init(PinName pn)
+bool GnssSerial::init()
 {
     Timer timer;
     int size;
-
-    // Unused (kept only for compatibility with the I2C version)
-    (void)pn;
 
     // Power up and enable the module
     _powerOn();
