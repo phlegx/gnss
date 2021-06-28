@@ -128,10 +128,6 @@ public:
      */
     virtual ~GnssParser(void);
 
-    /** Power-on/wake-up the GNSS.
-    */
-    virtual bool init(PinName pn) = 0;
-
     enum {
         // getLine Responses
         WAIT      = -1, //!< wait for more incoming data (the start of a message was found, or no data available)
@@ -358,11 +354,9 @@ public:
     virtual ~GnssSerial(void);
 
     /** Initialise the GNSS device.
-     * @param pn  NOT USED.
-     * @param baudrate
      * @return true if successful, otherwise false.
      */
-    virtual bool init(PinName pn = NC);
+    virtual bool init();
 
     /** Get a line from the physical interface.
      * @param buf the buffer to store it.
