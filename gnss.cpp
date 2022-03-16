@@ -634,7 +634,7 @@ const char GnssParser::_toHex[] = { '0','1','2','3','4','5','6','7','8','9','A',
 // ----------------------------------------------------------------
 
 GnssSerial::GnssSerial(PinName tx /*= GNSSTXD  */, PinName rx /*= GNSSRXD */, int baudrate /*= GNSSBAUD */,
-                       int rxSize /*= 256 */, int txSize /*= 128 */) :
+                       int rxSize /*= 512 */, int txSize /*= 512 */) :
     SerialPipe(tx, rx, baudrate, rxSize, txSize)
 {
     baud(baudrate);
